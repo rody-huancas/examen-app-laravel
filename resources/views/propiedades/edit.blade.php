@@ -1,30 +1,39 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="{{route('propiedad.update', $propiedad->id)}}" method="POST">
-    <h1>Editaar</h1>
+<form action="{{route('propiedad.update', $propiedad->id)}}" method="POST" class="property-form">
+    <h2 class="subtitle">Editar</h2>
     @csrf
     @method('PUT')
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="form-group">
-                <label for="nombre">Nombre</label>
-                <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese el nombre" value="{{$propiedad->nombre}}">
-                <label for="nombre">Dirección</label>
-                <input type="text" name="direccion" id="direccion" class="form-control" placeholder="Ingrese el direccion" value="{{$propiedad->direccion}}">
-                <label for="nombre">Caracteriticas</label>
-                <input type="text" name="caracteristicas" id="caracteristicas" class="form-control" placeholder="Ingrese el caracteristicas" value="{{$propiedad->caracteristicas}}">
-                <label for="nombre">Estado</label>
-                <input type="text" name="estado" id="estado" class="form-control" placeholder="Ingrese el estado" value="{{$propiedad->estado}}">
-                <label for="nombre">Precio Alquiler</label>
-                <input type="text" name="precio" id="precio" class="form-control" placeholder="Ingrese el precio" value="{{$propiedad->precioalquiler}}">
-
+    <div class="property-form__row">
+        <div class="property-form__col">
+            <div class="property-form__group">
+                <label for="nombre" class="property-form__label">Nombre</label>
+                <input type="text" name="nombre" id="nombre" class="property-form__input" placeholder="Ingrese el nombre" value="{{$propiedad->nombre}}">
             </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-success">Guardar</button>
-                <a href="{{route('inicio')}}" class="btn btn-default">Cancelar</a>
+            <div class="property-form__group">
+                <label for="direccion" class="property-form__label">Dirección</label>
+                <input type="text" name="direccion" id="direccion" class="property-form__input" placeholder="Ingrese el direccion" value="{{$propiedad->direccion}}">
+            </div>
+            <div class="property-form__group">
+                <label for="caracteristicas" class="property-form__label">Características</label>
+                <input type="text" name="caracteristicas" id="caracteristicas" class="property-form__input" placeholder="Ingrese el características" value="{{$propiedad->caracteristicas}}">
             </div>
         </div>
+        <div class="property-form__col">
+            <div class="property-form__group">
+                <label for="estado" class="property-form__label">Estado</label>
+                <input type="text" name="estado" id="estado" class="property-form__input" placeholder="Ingrese el estado" value="{{$propiedad->estado}}">
+            </div>
+            <div class="property-form__group">
+                <label for="precio" class="property-form__label">Precio Alquiler</label>
+                <input type="number" name="precio" id="precio" class="property-form__input" placeholder="Ingrese el precio" value="{{$propiedad->precioalquiler}}">
+            </div>
+        </div>
+    </div>
+    <div class="property-form__group">
+        <button type="submit" class="property-form__button property-form__button--success">Guardar</button>
+        <a href="{{route('inicio')}}" class="property-form__button property-form__button--default">Cancelar</a>
     </div>
 </form>
 @endsection

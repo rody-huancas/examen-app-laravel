@@ -6,18 +6,18 @@
 
         <title>Laravel</title>
 
-        <link rel="stylesheet" href="{{asset('css/app.css')}}">
+        <link rel="stylesheet" href="{{asset('/css/app.css')}}">
     </head>
     <body>
-        <header>
-            <ul>
-                <li><a href="{{route('inicio')}}">Inicio</a></li>
-                <li><a href="{{route('crear')}}">Crear</a></li>
+        <header class="header">
+            <ul class="header-group">
+                <li class="header-list"><a class="header-item" href="{{route('inicio')}}">Inicio</a></li>
+                <li class="header-list"><a class="header-item" href="{{route('crear')}}">Crear</a></li>
             </ul>
         </header>
-        <h1>Examen</h1>
+        <h1 class="title">Examen Parcial</h1>
 
-        <main>
+        <main class="main">
             @yield('content')
         </main>
 
